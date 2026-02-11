@@ -13,7 +13,7 @@ function CatalogPage() {
 
   // 1. Busca TUDO do banco ao carregar
   useEffect(() => {
-    fetch('http://localhost:3000/produtos')
+    fetch('http://https://yf-pratas-backend.onrender.com/produtos')
       .then(res => res.json())
       .then(data => {
         setProducts(data);

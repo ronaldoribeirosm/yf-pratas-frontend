@@ -25,7 +25,7 @@ function SuccessPage() {
   const verificarPagamento = async (payment_id, preference_id) => {
     try {
         // Chama o backend para confirmar e atualizar o banco
-        const res = await fetch('http://localhost:3000/verificar-pagamento', {
+        const res = await fetch('http://https://yf-pratas-backend.onrender.com/verificar-pagamento', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ payment_id, preference_id })

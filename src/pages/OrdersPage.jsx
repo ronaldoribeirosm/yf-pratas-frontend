@@ -15,7 +15,7 @@ function OrdersPage() {
     if (!token) return;
 
     try {
-      const res = await fetch('http://localhost:3000/meus-pedidos', {
+      const res = await fetch('http://https://yf-pratas-backend.onrender.com/meus-pedidos', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await res.json();

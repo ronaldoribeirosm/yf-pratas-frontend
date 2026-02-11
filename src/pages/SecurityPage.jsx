@@ -10,7 +10,7 @@ function SecurityPage() {
 
   const handleEnable2FA = async () => {
     try {
-      const res = await fetch('http://localhost:3000/auth/2fa/enable', {
+      const res = await fetch('http://https://yf-pratas-backend.onrender.com/auth/2fa/enable', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: user.email })

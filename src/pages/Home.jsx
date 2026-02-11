@@ -11,7 +11,7 @@ function Home() {
 
   // Efeito que busca os dados assim que o site abre
   useEffect(() => {
-    fetch('http://localhost:3000/produtos')
+    fetch('http://https://yf-pratas-backend.onrender.com/produtos')
       .then(res => res.json())
       .then(data => {
         setProducts(data);

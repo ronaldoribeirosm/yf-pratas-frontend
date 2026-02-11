@@ -18,7 +18,7 @@ function ProductPage() {
   useEffect(() => {
     window.scrollTo(0, 0); // Sobe para o topo
 
-    fetch(`http://localhost:3000/produtos/${id}`)
+    fetch(`http://https://yf-pratas-backend.onrender.com/produtos/${id}`)
       .then(res => res.json())
       .then(data => {
         setProduct(data);

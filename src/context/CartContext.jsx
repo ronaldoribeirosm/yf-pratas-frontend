@@ -30,7 +30,7 @@ export function CartProvider({ children }) {
 
   const fetchCartFromAPI = async (token) => {
     try {
-      const response = await fetch('http://localhost:3000/carrinho', {
+      const response = await fetch('http://https://yf-pratas-backend.onrender.com/carrinho', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       
@@ -74,7 +74,7 @@ export function CartProvider({ children }) {
 
     // SE TIVER TOKEN, TENTA SALVAR NO BANCO
     try {
-      const res = await fetch('http://localhost:3000/carrinho', {
+      const res = await fetch('http://https://yf-pratas-backend.onrender.com/carrinho', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -105,7 +105,7 @@ export function CartProvider({ children }) {
     const token = getToken();
     if (token) {
       try {
-        const res = await fetch(`http://localhost:3000/carrinho/${productId}`, {
+        const res = await fetch(`http://https://yf-pratas-backend.onrender.com/carrinho/${productId}`, {
           method: 'DELETE',
           headers: { 'Authorization': `Bearer ${token}` }
         });
