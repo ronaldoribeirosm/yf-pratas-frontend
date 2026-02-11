@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilo global YF Pratas - Dark Mode */
+body {
+  background-color: #000000; /* Fundo Preto */
+  color: #FFFFFF;            /* Texto Branco */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
