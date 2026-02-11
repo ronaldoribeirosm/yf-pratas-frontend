@@ -24,7 +24,7 @@ function AdminDashboard() {
   }, []);
 
   const fetchProducts = () => {
-    fetch('http://https://yf-pratas-backend.onrender.com/produtos')
+    fetch('https://yf-pratas-backend.onrender.com/produtos')
       .then(res => res.json())
       .then(data => {
         setProducts(data);
@@ -36,7 +36,7 @@ function AdminDashboard() {
   const handleDelete = async (id) => {
     if (window.confirm("Tem certeza que deseja excluir este produto? Não tem volta!")) {
       try {
-        const res = await fetch(`http://https://yf-pratas-backend.onrender.com/produtos/${id}`, {
+        const res = await fetch(`https://yf-pratas-backend.onrender.com/produtos/${id}`, {
           method: 'DELETE',
         });
         if (res.ok) {

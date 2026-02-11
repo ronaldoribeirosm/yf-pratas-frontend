@@ -47,7 +47,7 @@ function CheckoutPage() {
                 }));
 
                 // Calcula Frete no Backend
-                const resFrete = await fetch('http://https://yf-pratas-backend.onrender.com/calcular-frete', {
+                const resFrete = await fetch('https://yf-pratas-backend.onrender.com/calcular-frete', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ 
@@ -119,7 +119,7 @@ function CheckoutPage() {
     setLoading(true);
 
     try {
-        const response = await fetch('http://https://yf-pratas-backend.onrender.com/pedidos', {
+        const response = await fetch('https://yf-pratas-backend.onrender.com/pedidos', {
             method: 'POST',
             headers: { 
                 'Content-Type': 'application/json',

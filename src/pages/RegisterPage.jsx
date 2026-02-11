@@ -14,7 +14,7 @@ function RegisterPage() {
 
     try {
       // Envia os dados para o Back-end
-      const response = await fetch('http://https://yf-pratas-backend.onrender.com/auth/register', {
+      const response = await fetch('https://yf-pratas-backend.onrender.com/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

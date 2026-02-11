@@ -22,7 +22,7 @@ function EditProductPage() {
 
   // 1. Busca os dados atuais ao abrir a página
   useEffect(() => {
-    fetch(`http://https://yf-pratas-backend.onrender.com/produtos/${id}`)
+    fetch(`https://yf-pratas-backend.onrender.com/produtos/${id}`)
       .then(res => res.json())
       .then(data => {
         setNome(data.nome);
@@ -61,7 +61,7 @@ function EditProductPage() {
     }
 
     try {
-      const response = await fetch(`http://https://yf-pratas-backend.onrender.com/produtos/${id}`, {
+      const response = await fetch(`https://yf-pratas-backend.onrender.com/produtos/${id}`, {
         method: 'PUT', // Usamos PUT para atualizar
         body: formData 
       });

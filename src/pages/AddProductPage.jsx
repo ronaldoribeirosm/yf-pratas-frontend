@@ -43,7 +43,7 @@ function AddProductPage() {
     formData.append('imagem', imagemFile); // Aqui vai o arquivo real
 
     try {
-      const response = await fetch('http://https://yf-pratas-backend.onrender.com/produtos', {
+      const response = await fetch('https://yf-pratas-backend.onrender.com/produtos', {
         method: 'POST',
         // Não precisamos setar Content-Type, o navegador faz isso sozinho com FormData
         body: formData 

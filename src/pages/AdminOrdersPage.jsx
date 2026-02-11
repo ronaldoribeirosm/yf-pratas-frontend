@@ -32,7 +32,7 @@ function AdminOrdersPage() {
     }
 
     try {
-      const res = await fetch('http://https://yf-pratas-backend.onrender.com/admin/pedidos', {
+      const res = await fetch('https://yf-pratas-backend.onrender.com/admin/pedidos', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
 
@@ -72,7 +72,7 @@ function AdminOrdersPage() {
       const bodyData = { status: novoStatus };
       if (rastreio) bodyData.codigo_rastreio = rastreio;
 
-      await fetch(`http://https://yf-pratas-backend.onrender.com/admin/pedidos/${id}/status`, {
+      await fetch(`https://yf-pratas-backend.onrender.com/admin/pedidos/${id}/status`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
         body: JSON.stringify(bodyData)

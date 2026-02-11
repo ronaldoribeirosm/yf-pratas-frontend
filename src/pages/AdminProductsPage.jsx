@@ -32,7 +32,7 @@ function AdminProductsPage() {
     if (formData.imagem) data.append('imagem', formData.imagem);
 
     try {
-        const res = await fetch('http://https://yf-pratas-backend.onrender.com/produtos', {
+        const res = await fetch('https://yf-pratas-backend.onrender.com/produtos', {
             method: 'POST',
             headers: { 'Authorization': `Bearer ${token}` }, // Token para segurança
             body: data
