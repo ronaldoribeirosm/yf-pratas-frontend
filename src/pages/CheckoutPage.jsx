@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 function CheckoutPage() {
   // SUAS CHAVES
-  initMercadoPago('APP_USR-ee6dfae6-4624-40d9-8054-1b442e5db4e9', { locale: 'pt-BR' });
+  initMercadoPago('APP_USR-f72254fb-893e-4a9a-8a13-878382a592a5', { locale: 'pt-BR' });
 
   const { cartItems } = useCart();
   const navigate = useNavigate();

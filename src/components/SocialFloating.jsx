@@ -6,7 +6,7 @@ function SocialFloating() {
       
       {/* Instagram */}
       <a 
-        href="https://instagram.com/SEU_USER_AQUI" 
+        href="https://www.instagram.com/yfpratas__ofc?igsh=MWtsOWJ6enVmYThjag==" 
         target="_blank" 
         rel="noopener noreferrer"
         className="bg-black text-white p-3 rounded-full shadow-[0_0_15px_rgba(0,0,0,0.3)] hover:scale-110 transition-transform duration-300 flex items-center justify-center border border-gray-800"
@@ -21,7 +21,7 @@ function SocialFloating() {
 
       {/* WhatsApp */}
       <a 
-        href="https://wa.me/5511999999999" // Coloque seu número aqui
+        href="https://wa.me/5512996212457" // Coloque seu número aqui
         target="_blank" 
         rel="noopener noreferrer"
         className="bg-black text-white p-3 rounded-full shadow-[0_0_15px_rgba(0,0,0,0.3)] hover:scale-110 transition-transform duration-300 flex items-center justify-center border border-gray-800"
