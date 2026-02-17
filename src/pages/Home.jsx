@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // <-- Adicionado para o botão do final da página
+import { useNavigate } from 'react-router-dom'; 
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import ProductCard from '../components/ProductCard';
@@ -7,12 +7,13 @@ import ProductCard from '../components/ProductCard';
 function Home() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate(); // <-- Habilita a navegação
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     fetch('https://yf-pratas-backend.onrender.com/produtos')
       .then(res => res.json())
       .then(data => {
+        // Você pode até inverter a ordem para mostrar os recém-adicionados usando data.reverse()
         setProducts(data);
         setLoading(false);
       })
@@ -27,7 +28,6 @@ function Home() {
       <Navbar />
       <Hero />
 
-      {/* 🚀 ADICIONADO O id="destaques" AQUI EM BAIXO */}
       <main id="destaques" className="container mx-auto px-4 py-16">
         
         <div className="text-center mb-12">
@@ -41,7 +41,8 @@ function Home() {
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {products.map((produto) => (
+            {/* 🚀 A MÁGICA AQUI: .slice(0, 4) garante que só vão aparecer 4 produtos no máximo! */}
+            {products.slice(0, 4).map((produto) => (
               <ProductCard key={produto.id} product={produto} />
             ))}
           </div>
@@ -53,7 +54,6 @@ function Home() {
           </div>
         )}
 
-        {/* 🚀 BÔNUS: Fiz esse botão levar o cliente pro Catálogo completo */}
         <div className="text-center mt-16">
           <button 
             onClick={() => navigate('/catalogo')}
