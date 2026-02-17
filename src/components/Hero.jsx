@@ -35,7 +35,10 @@ function Hero() {
         </h2>
 
         {/* Botão de Ação */}
-        <button className="bg-white text-black px-10 py-3 md:px-12 md:py-4 text-xs md:text-sm font-bold uppercase tracking-[0.2em] hover:bg-gray-200 transition-all transform hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] duration-300 z-20">
+        <button 
+          onClick={() => document.getElementById('destaques')?.scrollIntoView({ behavior: 'smooth' })}
+          className="bg-white text-black px-10 py-3 md:px-12 md:py-4 text-xs md:text-sm font-bold uppercase tracking-[0.2em] hover:bg-gray-200 transition-all transform hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] duration-300 z-20"
+        >
           Ver Coleção
         </button>
       </div>
