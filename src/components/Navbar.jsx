@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShoppingBag, Search, User, Menu, ShieldCheck, LogOut, PackagePlus, Truck } from 'lucide-react';
+import { ShoppingBag, Search, User, Menu, LogOut, PackagePlus, Truck } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo-yf.jpg';
 import { useCart } from '../context/CartContext';
@@ -39,12 +39,14 @@ function Navbar() {
           </Link>
         </div>
 
-        {/* LINKS CENTRAIS (Lógica: Admin vs Cliente) */}
+        {/* LINKS CENTRAIS */}
         <div className="hidden md:flex items-center space-x-6 text-xs uppercase tracking-[0.15em] text-gray-400 font-bold">
           <Link to="/" className="hover:text-white transition-colors py-2 border-b-2 border-transparent hover:border-white">
             Início
           </Link>
-          <Link to="/produtos" className="hover:text-white transition-colors py-2 border-b-2 border-transparent hover:border-white">
+          
+          {/* 🚀 CORREÇÃO: Link ajustado para /catalogo (minúsculo) */}
+          <Link to="/catalogo" className="hover:text-white transition-colors py-2 border-b-2 border-transparent hover:border-white">
             Catálogo
           </Link>
           
