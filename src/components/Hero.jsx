@@ -26,7 +26,7 @@ function Hero() {
         <img 
           src={logo} 
           alt="YF Pratas" 
-          className="h-[280px] sm:h-[350px] md:h-[580px] w-auto object-contain mix-blend-screen opacity-90 hover:opacity-100 transition-opacity duration-700"
+          className="h-[280px] sm:h-[350px] md:h-[580px] w-auto object-contain mix-blend-screen opacity-90 hover:opacity-100 transition-opacity duration-700 animate-pulso-suave"
         />
         
         {/* Texto Inferior (Slogan) */}

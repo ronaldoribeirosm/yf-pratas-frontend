@@ -8,3 +8,16 @@ body {
   color: #FFFFFF;            /* Texto Branco */
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+/* Animação suave de pulsação para a Logo */
+@keyframes pulso-suave {
+  0%, 100% { 
+    transform: scale(1); 
+  }
+  50% { 
+    transform: scale(1.05); /* Aumenta 5% bem devagar */
+  }
+}
+
+.animate-pulso-suave {
+  animation: pulso-suave 3s ease-in-out infinite;
+}
