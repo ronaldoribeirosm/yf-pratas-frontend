@@ -1,5 +1,5 @@
-import React from 'react';
-import { ShoppingBag, Search, User, Menu, LogOut, PackagePlus, Truck } from 'lucide-react';
+import React, { useState } from 'react';
+import { ShoppingBag, Search, User, Menu, LogOut, PackagePlus, Truck, X } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo-yf.jpg';
 import { useCart } from '../context/CartContext';
@@ -9,6 +9,9 @@ function Navbar() {
   const { setIsCartOpen, cartItems, clearCart } = useCart();
   const { setIsSearchOpen } = useSearch();
   const navigate = useNavigate();
+  
+  // ESTADO NOVO: Controla se o menu do celular está aberto ou fechado
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   
   const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
 
@@ -20,32 +23,36 @@ function Navbar() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     clearCart();
+    setIsMenuOpen(false); // Fecha o menu ao sair
     navigate('/login');
   };
 
   return (
-    <nav className="bg-black text-white border-b border-gray-900 sticky top-0 z-50">
+    <nav className="bg-black text-white border-b border-gray-900 sticky top-0 z-50 relative">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         
-        {/* Menu Mobile */}
-        <div className="md:hidden cursor-pointer">
-          <Menu className="w-6 h-6 text-gray-300 hover:text-white transition-colors" />
+        {/* Menu Mobile (Hamburguer / X) */}
+        <div className="md:hidden cursor-pointer" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          {isMenuOpen ? (
+            <X className="w-6 h-6 text-gray-300 hover:text-white transition-colors" />
+          ) : (
+            <Menu className="w-6 h-6 text-gray-300 hover:text-white transition-colors" />
+          )}
         </div>
 
         {/* LOGO */}
         <div className="flex-shrink-0">
-          <Link to="/">
+          <Link to="/" onClick={() => setIsMenuOpen(false)}>
             <img src={logo} alt="YF Pratas" className="h-12 md:h-16 w-auto object-contain hover:opacity-80 transition-opacity" />
           </Link>
         </div>
 
-        {/* LINKS CENTRAIS */}
+        {/* LINKS CENTRAIS (Desktop - Some no celular) */}
         <div className="hidden md:flex items-center space-x-6 text-xs uppercase tracking-[0.15em] text-gray-400 font-bold">
           <Link to="/" className="hover:text-white transition-colors py-2 border-b-2 border-transparent hover:border-white">
             Início
           </Link>
           
-          {/* 🚀 CORREÇÃO: Link ajustado para /catalogo (minúsculo) */}
           <Link to="/catalogo" className="hover:text-white transition-colors py-2 border-b-2 border-transparent hover:border-white">
             Catálogo
           </Link>
@@ -75,7 +82,7 @@ function Navbar() {
         </div>
 
         {/* ÍCONES DA DIREITA */}
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4 md:gap-6">
           
           {/* Busca */}
           <button onClick={() => setIsSearchOpen(true)} title="Buscar">
@@ -84,7 +91,7 @@ function Navbar() {
           
           {/* Área do Usuário */}
           {user ? (
-            <div className="flex items-center gap-4 border-l border-gray-800 pl-6">
+            <div className="flex items-center gap-3 md:gap-4 border-l border-gray-800 pl-3 md:pl-6">
               
               {/* Identificação Visual */}
               {isAdmin ? (
@@ -106,7 +113,7 @@ function Navbar() {
             </div>
           ) : (
             // Visitante
-            <Link to="/login" title="Entrar" className="border-l border-gray-800 pl-6">
+            <Link to="/login" title="Entrar" className="border-l border-gray-800 pl-3 md:pl-6">
               <User className="w-5 h-5 text-gray-300 hover:text-white transition-transform hover:scale-110" />
             </Link>
           )}
@@ -126,6 +133,37 @@ function Navbar() {
 
         </div>
       </div>
+
+      {/* --- MENU MOBILE (YF Pratas Style) --- */}
+      {isMenuOpen && (
+        <div className="md:hidden absolute top-full left-0 w-full bg-black border-b border-gray-800 shadow-xl animate-fade-in z-50">
+          <div className="flex flex-col px-6 py-6 space-y-6 text-sm uppercase tracking-widest font-bold text-gray-400">
+            <Link to="/" onClick={() => setIsMenuOpen(false)} className="hover:text-white transition-colors">Início</Link>
+            <Link to="/catalogo" onClick={() => setIsMenuOpen(false)} className="hover:text-white transition-colors">Catálogo</Link>
+            
+            {isAdmin ? (
+              <div className="flex flex-col gap-4 border-y border-gray-800 py-4 my-2">
+                  <span className="text-[10px] text-yellow-500 font-black tracking-widest">Painel Admin</span>
+                  <Link to="/admin/produtos" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2 text-white hover:text-yellow-500 transition-colors">
+                      <PackagePlus size={18} /> Adicionar Produtos
+                  </Link>
+                  <Link to="/admin/pedidos" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2 text-white hover:text-blue-400 transition-colors">
+                      <Truck size={18} /> Ver Vendas
+                  </Link>
+              </div>
+            ) : (
+              user && (
+                  <Link to="/meus-pedidos" onClick={() => setIsMenuOpen(false)} className="hover:text-white transition-colors border-y border-gray-800 py-4 my-2">
+                      Meus Pedidos
+                  </Link>
+              )
+            )}
+
+            <Link to="/sobre" onClick={() => setIsMenuOpen(false)} className="hover:text-white transition-colors">Sobre</Link>
+          </div>
+        </div>
+      )}
+
     </nav>
   );
 }
